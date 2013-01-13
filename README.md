@@ -1,7 +1,7 @@
 MongoUpgrade
 ============
 
-MongoUpgrade handles database upgrade scripts.
+MongoUpgrade handles database upgrade scripts for [Mongo DB](http://www.mongodb.org/).
 Scripts need to be put into the subdirectory __upgrades__.
 The scripts are named by the database version. The first
 upgrade scripts is called _1.coffee_.
