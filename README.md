@@ -29,3 +29,29 @@ _upgrade_ function:
 The upgrade function gets a reference to the database and
 the callback function which needs to be invoked when the
 upgrade is complete.
+
+## Example
+
+In my workflow I put initial data in upgrade scripts.
+This way you can change the structure of your init data easily.
+
+    assert = require 'assert'
+
+    exports.upgrade = (db, callback) ->
+      console.log "DB UPGRADE 1"
+
+      db.collection 'users', (err, collection) ->
+        assert.equal null, err
+        userCol = collection
+        userCol.remove()
+        userCol.insert { name: "Sönke Rohde", twitter: "https://twitter.com/soenkerohde" }
+
+        callback()
+
+## Revoke Versions
+
+Whenever you want to re-run all your upgrade scripts simply connect to your mongo console and delete the versions:
+
+    $ mongo
+    $ use <your_db_name>
+    $ db.db_version.remove()
