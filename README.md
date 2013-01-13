@@ -55,3 +55,8 @@ Whenever you want to re-run all your upgrade scripts simply connect to your mong
     $ mongo
     $ use <your_db_name>
     $ db.db_version.remove()
+
+## License
+
+[MIT License](http://opensource.org/licenses/MIT)
+
